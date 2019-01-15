@@ -92,3 +92,13 @@ early = EarlyStopping(monitor='val_loss', mode='min', patience=3)
 callback = [checkpoint, early] 
 
 model.fit(X_train, y_train, batch_size = 128, epochs = 20, validation_data=(X_val, y_val), callbacks = callback)
+
+# See validation results
+
+predictions = model.predict(X_val)
+predictions = [np.argmax(x) for x in predictions]
+actual_labels = [np.argmax(x) for x in y_val]
+
+from sklearn.metrics import confusion_matrix 
+
+matrix = confusion_matrix(actual_labels, predictions)
