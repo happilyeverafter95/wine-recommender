@@ -1,8 +1,10 @@
 # Read files 
 
 import pandas as pd 
+import os 
+os.chdir("C://Users//mandy//Desktop//wine-recommender//")
 
-data = pd.read_csv("C://Users//mandy//Desktop//wine-recommender/winemag-data-130k-v2.csv", index_col = False)
+data = pd.read_csv("winemag-data-130k-v2.csv", index_col = False)
 
 # Part 1: Using text description to predict points 
 
